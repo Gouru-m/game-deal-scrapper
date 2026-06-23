@@ -1,6 +1,6 @@
 from flask import Flask
 from app.config import Config
-from app.extensions import db, csrf
+from app.extensions import db, csrf, limiter
 from app.deals.routes import deals_bp
 
 def create_app(config_class=Config):
@@ -12,6 +12,7 @@ def create_app(config_class=Config):
     #connect extensions to the app
     db.init_app(app)
     csrf.init_app(app)
+    limiter.init_app(app)
 
     #Register routes
     app.register_blueprint(deals_bp)
