@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Game Deals Scraper{% endblock %}
+
+{% block content %}
+<section class="dashboard-header">
+    <div>
+        <h1>Game Deals Dashboard</h1>
+        <p>
+            Scraped game prices displayed with genre and price filters.
+        </p>
+    </div>
+
+    <form
+        method="post"
+        action="{{ url_for('deals.refresh') }}"
+        class="refresh-form"
+    >
+        {{ refresh_form.hidden_tag() }}
+        {{ refresh_form.submit(class="button button-primary") }} 
+    </form>
+</section>
+
+<section class="filter-panel">
+    <form method="get" action="{{ url_for('deals.dashboard') }}" class="filter-form">
+        <div class="form-group">
+            {{ form.genre.label }}
+            {{ form.genre(class="form-control") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.max_price.label }}
+            {{ form.max_price(class="form-control", placeholder="Example: 20") }}
+
+            {% if form.max_price.errors %}
+                <small class="form-error">
+                    {{ form.max_price.errors[0] }}
+                </small>
+        </div>
+
+        <div class="form-group checkbox-group">
+            {{ form.best_only() }}
+            {{ form.best_only.label }}
+        </div>
+
+        {{ form.submit(class="button") }}
+
+        <a href="{{ url_for('deals.dashboard') }}" class="button button-secondary">
+            Clear filters
+        </a>
+    </form>
+</section>
+
+<section class="results-summary">
+    <p>
+        Showing <strong>{{ deals|length }}</strong>
+    </p>
+</section>
+
+<section>
+    
+</section>
