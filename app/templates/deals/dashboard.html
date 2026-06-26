@@ -36,6 +36,7 @@
                 <small class="form-error">
                     {{ form.max_price.errors[0] }}
                 </small>
+            {% endif %}
         </div>
 
         <div class="form-group checkbox-group">
@@ -67,8 +68,8 @@
                     class="deal-image"
                     loading="lazy"
                 >
-            {% endif %}
-
+            {% endfor %}
+            
             <div class="deal-content">
                 {% if deal.is_best_deal %}
                     <span class="badge">Best deal</span>
@@ -81,12 +82,13 @@
                 </p>
                 <div class="price-row">
                     {% if deal.original_price %}
-                        <span class="original_price">
+                        <span class="original-price">
                             {{ "%.2f"|format(deal.original_price) }}
                         </span>
+                    {% endif %} 
                 </div>
                 
-                {% if dea.discount_percent %}
+                {% if deal.discount_percent %}
                     <p class="discount">
                         {{ deal.discount_percent}}% off
                     </p>
