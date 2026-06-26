@@ -1,0 +1,261 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f6fa;
+    color: #222;
+}
+
+.site-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.nav-subtitle{
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.page-container{
+    width: min(1100px, 92%);
+    margin: 2rem auto;
+}
+
+.dashboard-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-panel{
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.filter-form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: end;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.checkbox-group{
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.form-control{
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    min-width: 180px;
+}
+
+.form-error{
+    color: #b91c1c;
+}
+
+.button{
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    background: #e5e7eb;
+    color: #111827;
+    text-decoration: none;
+    cursor:pointer;
+    display: inline-block;
+}
+
+.button:hover{
+    background: #d1d5db;
+}
+
+.button-primary{
+    background: #2563eb;
+    color: white;
+}
+
+.button-primary:hover{
+    background: #1d4ed8;
+}
+
+.button-secondary{
+    background: #f3f4f6;
+}
+
+.flash-container{
+    margin-bottom: 1rem;
+}
+
+.flash{
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.flash-success{
+    background: #dcfce7;
+    color: #166534;
+}
+
+.flash-error{
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.results-summary{
+    margin-bottom: 1rem;
+}
+
+.deals-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.deals-card{
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.deals-card.best-deal{
+    border: 2px solid #f59e0b;
+}
+
+.deal-image{
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    background: #e5e7eb;
+}
+
+.deal-content{
+    padding: 1rem;
+}
+
+.deal-content h2{
+    font-size: 1.05rem;
+    margin: 0.4rem 0;
+}
+
+.genre,
+.source{
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.price-row{
+    display: flex;
+    gap: 0.7;
+    align-items: center;
+    margin: 0.7rem 0;
+}
+
+.original-price{
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.sale-price{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #047857;
+}
+
+.discount{
+    color: #b45309;
+    font-weight: bold;
+}
+
+.badge{
+    display: inline-block;
+    background: #f59e0b;
+    color: #111827;
+    border-radius: 999px;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.deal-link{
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.deal-link:hover{
+    text-decoration: underline;
+}
+
+.empty-state{
+    grid-column: 1 / -1;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.site-footer{
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem; 
+    color: #6b7280;
+}
+
+@media (max-width: 700px){
+    .dashboard-header{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-form{
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-control,
+    .button{
+        width: 100%;
+    }
+
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

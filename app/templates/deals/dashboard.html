@@ -57,6 +57,61 @@
     </p>
 </section>
 
-<section>
-    
+<section class="deals-grid">
+    {% for deal in deals %}
+        <article class="deal-card {% if deal.is_best_deal %}best_deal{% endif %}">
+            {% for deal in deals %}
+                <img
+                    src="{{ deal.image_url }}"
+                    alt="{{ deal.title }}"
+                    class="deal-image"
+                    loading="lazy"
+                >
+            {% endif %}
+
+            <div class="deal-content">
+                {% if deal.is_best_deal %}
+                    <span class="badge">Best deal</span>
+                {% endif %}
+
+                <h2>{{ deal.title }}</h2>
+
+                <p class="genre">
+                    {{ deal.genre or "Unknown genre"}}
+                </p>
+                <div class="price-row">
+                    {% if deal.original_price %}
+                        <span class="original_price">
+                            {{ "%.2f"|format(deal.original_price) }}
+                        </span>
+                </div>
+                
+                {% if dea.discount_percent %}
+                    <p class="discount">
+                        {{ deal.discount_percent}}% off
+                    </p>
+                {% endif %}
+                
+                <p class="source">
+                    Source: {{ deal.source }}
+                </p>
+                <a 
+                    href="{{ deal.product_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="deal-link"
+                >
+                    View deal
+                </a>
+            </div>
+        </article>
+    {% else %}
+        <div class="empty-state">
+            <h2>No deals found</h2>
+            <p>
+                Try clearing the filters or refreshing scraped deals.
+            </p>
+        </div>
+    {% endfor %}
 </section>
+{% endblock %}
